@@ -4,6 +4,13 @@ from pygame import Color, Surface
 from pygame.constants import MOUSEBUTTONDOWN, MOUSEBUTTONUP
 from pygame.event import Event
 
+from surface.defaults import (
+    DEFAULT_BORDER_COLOR,
+    DEFAULT_BORDER_RADIUS,
+    DEFAULT_BORDER_WIDTH,
+    DEFAULT_UNHOVERED_BACKGROUND_COLOR,
+)
+
 from .component import Component
 from .types import Position
 
@@ -16,12 +23,12 @@ class Slider(Component):
         step_width: int,
         height: int,
         initial_value: int = 1,
-        bar_color: Color = Color("white"),
-        bar_border_color: Color = Color("gray"),
-        bar_border_width: int = 3,
-        bar_border_radius: int = 4,
-        unhovered_thumb_color: Color = Color((50, 50, 50)),
-        hovered_thumb_color: Color = Color((100, 100, 100)),
+        bar_color: Color = DEFAULT_UNHOVERED_BACKGROUND_COLOR,
+        bar_border_color: Color = DEFAULT_BORDER_COLOR,
+        bar_border_width: int = DEFAULT_BORDER_WIDTH,
+        bar_border_radius: int = DEFAULT_BORDER_RADIUS,
+        unhovered_thumb_color: Color = Color((240, 240, 240)),
+        hovered_thumb_color: Color = Color("white"),
         thumb_width: int = 10,
         thumb_vertical_overflow: int = 5,
         thumb_border_radius: int = 3,

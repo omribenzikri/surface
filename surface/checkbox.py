@@ -2,6 +2,14 @@ import pygame.draw
 from pygame import Color, Surface
 from pygame.event import Event
 
+from surface.defaults import (
+    DEFAULT_BORDER_COLOR,
+    DEFAULT_BORDER_RADIUS,
+    DEFAULT_BORDER_WIDTH,
+    DEFAULT_HOVERED_BACKGROUND_COLOR,
+    DEFAULT_UNHOVERED_BACKGROUND_COLOR,
+)
+
 from .component import ClickableComponent
 from .types import Position, Size
 
@@ -11,11 +19,11 @@ class Checkbox(ClickableComponent):
         self,
         position: Position,
         size: Size,
-        unhovered_color: Color = Color((20, 20, 20)),
-        hovered_color: Color = Color((30, 30, 30)),
-        border_color: Color = Color("gray"),
-        border_width: int = 3,
-        border_radius: int = 4,
+        unhovered_color: Color = DEFAULT_UNHOVERED_BACKGROUND_COLOR,
+        hovered_color: Color = DEFAULT_HOVERED_BACKGROUND_COLOR,
+        border_color: Color = DEFAULT_BORDER_COLOR,
+        border_width: int = DEFAULT_BORDER_WIDTH,
+        border_radius: int = DEFAULT_BORDER_RADIUS,
         cross_color: Color = Color("white"),
         cross_width: int = 3,
         cross_padding: int = 6,

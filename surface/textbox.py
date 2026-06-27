@@ -4,6 +4,18 @@ from pygame.constants import K_BACKSPACE, KEYDOWN, MOUSEBUTTONDOWN
 from pygame.event import Event
 from pygame.font import Font
 
+from surface.defaults import (
+    DEFAULT_BORDER_COLOR,
+    DEFAULT_BORDER_RADIUS,
+    DEFAULT_BORDER_WIDTH,
+    DEFAULT_HOVERED_BACKGROUND_COLOR,
+    DEFAULT_SELECTED_BACKGROUND_COLOR,
+    DEFAULT_TEXT_ANTIALIAS,
+    DEFAULT_TEXT_COLOR,
+    DEFAULT_TEXT_PADDING,
+    DEFAULT_UNHOVERED_BACKGROUND_COLOR,
+)
+
 from .component import ClickableComponent
 from .types import Position, Size
 
@@ -14,15 +26,15 @@ class Textbox(ClickableComponent):
         position: Position,
         size: Size,
         font: Font,
-        text_color: Color = Color("white"),
-        text_antialias: bool = False,
-        unhovered_color: Color = Color((20, 20, 20)),
-        hovered_color: Color = Color((30, 30, 30)),
-        selected_color: Color = Color((50, 50, 50)),
-        border_color: Color = Color("gray"),
-        border_width: int = 3,
-        border_radius: int = 4,
-        text_padding: int = 6,
+        text_color: Color = DEFAULT_TEXT_COLOR,
+        text_antialias: bool = DEFAULT_TEXT_ANTIALIAS,
+        unhovered_color: Color = DEFAULT_UNHOVERED_BACKGROUND_COLOR,
+        hovered_color: Color = DEFAULT_HOVERED_BACKGROUND_COLOR,
+        selected_color: Color = DEFAULT_SELECTED_BACKGROUND_COLOR,
+        border_color: Color = DEFAULT_BORDER_COLOR,
+        border_width: int = DEFAULT_BORDER_WIDTH,
+        border_radius: int = DEFAULT_BORDER_RADIUS,
+        text_padding: int = DEFAULT_TEXT_PADDING,
         valid_chars: set[str] | None = None,
     ) -> None:
         super().__init__(position, size)

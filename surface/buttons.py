@@ -4,6 +4,16 @@ from pygame import Color, Surface
 from pygame.font import Font
 
 from .component import ClickableComponent
+from .defaults import (
+    DEFAULT_BORDER_COLOR,
+    DEFAULT_BORDER_RADIUS,
+    DEFAULT_BORDER_WIDTH,
+    DEFAULT_HOVERED_BACKGROUND_COLOR,
+    DEFAULT_TEXT_ANTIALIAS,
+    DEFAULT_TEXT_COLOR,
+    DEFAULT_TEXT_PADDING,
+    DEFAULT_UNHOVERED_BACKGROUND_COLOR,
+)
 from .types import Position, Size
 
 
@@ -14,14 +24,14 @@ class TextButton(ClickableComponent):
         font: Font,
         position: Position,
         size: Size | None = None,
-        text_color: Color = Color("white"),
-        unhovered_background_color: Color = Color((40, 40, 40)),
-        hovered_background_color: Color = Color((50, 50, 50)),
-        border_color: Color = Color("gray"),
-        border_width: int = 3,
-        border_radius: int = 4,
-        text_padding: int = 8,
-        text_antialias: bool = True,
+        text_color: Color = DEFAULT_TEXT_COLOR,
+        unhovered_background_color: Color = DEFAULT_UNHOVERED_BACKGROUND_COLOR,
+        hovered_background_color: Color = DEFAULT_HOVERED_BACKGROUND_COLOR,
+        border_color: Color = DEFAULT_BORDER_COLOR,
+        border_width: int = DEFAULT_BORDER_WIDTH,
+        border_radius: int = DEFAULT_BORDER_RADIUS,
+        text_padding: int = DEFAULT_TEXT_PADDING,
+        text_antialias: bool = DEFAULT_TEXT_ANTIALIAS,
     ) -> None:
         text_width, text_height = font.size(text)
         text_size_with_padding = (
